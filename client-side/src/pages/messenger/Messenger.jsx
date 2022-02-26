@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect  } from 'react';
+import React, { useContext, useState,useEffect, useRef  } from 'react';
 import ChatOnline from '../../components/chatOnline/ChatOnline';
 import Conversation from '../../components/conversation/Conversation';
 import Message from '../../components/message/Message';
@@ -12,6 +12,7 @@ function Messenger() {
     const[messages,setMessages]=useState([])
     const[newMessage,setNewMessage]=useState("")
     const {user}=useContext(AuthContext)
+    const scrollRef=useRef()
 
     useEffect(()=>{
         const getConversations=async()=>{
@@ -35,15 +36,25 @@ function Messenger() {
           }
         }
         getMessages();
-      },[currentChat])
-const handleSubmit=(e)=>{
+      },[currentChat]) 
+const handleSubmit=async (e)=>{
     e.preventDefault();
     const message={
         sender:user._id,
         text:newMessage,
         conversationId:currentChat._id
+    };
+    try {
+        const res=await axios.post('/messages',message);
+        setMessages([...messages,res.data]);
+        setNewMessage("");
+    } catch (error) {
+        console.log(error)
     }
 }
+useEffect(()=>{
+    scrollRef.current?.scrollIntoView({behavior:"smooth"});
+  },[messages])
   return (
   <>
       <Topbar/>
@@ -52,7 +63,7 @@ const handleSubmit=(e)=>{
              <div className="chatMenuWrapper">
                  <input placeholder="Search for friends" type="text"className="chatMenuInput" />
                  {conversations.map((c)=>(
-                     <div onClick={setCurrentChat(c)}>
+                     <div key={c._id} onClick={()=>setCurrentChat(c)}>
                      <Conversation conversation={c} currentUser={user}/>
                      </div>
                  ))}
@@ -63,9 +74,11 @@ const handleSubmit=(e)=>{
             { currentChat ?
              (<>
                  <div className="chatBoxTop">
+                     <div ref={scrollRef}>
                      {messages.map((m)=>(
-                          <Message message={m} own={m.sender === user._id}/>
+                          <Message key={m._id} message={m} own={m.sender === user._id}/>
                      ))}
+                    </div>
                  </div>
                  <div className="chatBoxBottom">
                      <textarea value={newMessage} onChange={(e)=>setNewMessage(e.target.value)} placeholder="Enter your message" className="chatMessageInput"></textarea>

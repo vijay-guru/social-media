@@ -1,6 +1,7 @@
 import './message.css';
 import {format} from 'timeago.js'
 function Message({message,own}) {
+    const PF=process.env.REACT_APP_PUBLIC_FOLDER;
   return (
       <div className={own ?"message own" : "message"}>
           <div className="messageTop">

@@ -58,7 +58,6 @@ function Post({post}) {
                       <img src={`${PF}heart.png`} alt="" className="likeIcon" onClick={likeHandler}/>
                       <span className="postLikeCounter">{like} people like it</span>
                   </div>
-                  <div className="postBottomRight"><span className="postCommentText">{post.comment} comments</span></div>
               </div>
           </div>
           

@@ -17,7 +17,6 @@ function Login() {
                 password:password.current.value
             },dispatch);
     }
-
   return (
         <div className="login">
             <div className="loginWrapper">

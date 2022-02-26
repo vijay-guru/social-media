@@ -1,5 +1,7 @@
 .rightBar{
     flex:3.5;
+    position:sticky;
+    padding:20px;
 }
 .rightbarWrapper{
     padding:20px 20px 0 0;
