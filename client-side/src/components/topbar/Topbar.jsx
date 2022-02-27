@@ -26,11 +26,11 @@ function Topbar() {
                 </div>
                 <div className="topbarIcons">
                     <div className="topbarIconItem">
-                        <SettingsApplicationsRounded/>
+                    <Link to="/update" style={{textDecoration:"none",color:"white"}}><SettingsApplicationsRounded/></Link>
+                        
                     </div>
                     <div className="topbarIconItem">
                       <Link to="/messenger" style={{textDecoration:"none",color:"white"}}><Chat/></Link>
-                        <span className="topbarIconBadge">1</span>
                     </div>
                 </div>
                <Link to={"/profile/"+user.username}> <img src={user.profilePicture ? PF+user.profilePicture : PF+"/person/noAvatar.png" } alt="" className="topbarImage" /></Link>
