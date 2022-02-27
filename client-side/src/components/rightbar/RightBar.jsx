@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {AuthContext} from '../../context/AuthContext'
-import { Add, Remove } from '@material-ui/icons';
+import { Add, Remove,Favorite } from '@material-ui/icons';
 function RightBar({ user }) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const[friends,setFriends]=useState([])
@@ -54,6 +54,20 @@ function RightBar({ user }) {
                     </span>
                 </div>
                 <img src="/assets/ad.png" alt="" className="rightbarAd" />
+                <hr/>
+                <div className="about">
+                    <h4 className="aboutName">Made with <span className="aboutNameHeart" style={{color: 'blue',marginLeft:"3px",marginRight:"3px",marginTop:"-5px"}}> <Favorite/> </span> by Vijay</h4>
+                    <div className="aboutSocial1">
+                       <a className="socialLinks" href="https://www.linkedin.com/in/vijay-guru-166866210/" target="_blank">LinkedIn</a>
+                        <a className="socialLinks" href="https://github.com/vijay-guru" target="_blank">GitHub</a>
+                       <a className="socialLinks" href="https://www.instagram.com/vijay_guru18/" target="_blank">Instagram</a>
+                    </div>
+                    <div className="aboutSocial2">
+                       <a className="socialLinks" href="https://www.facebook.com/people/Vijay-Guru/100073320799153/" target="_blank">Facebook</a>
+                      <a className="socialLinks" href="mailto:vjguru40@gmail.com" target="_blank">Mail Us</a>
+                    </div>
+                    <h5 className="aboutCopyrights">Vijay-Guru &#169; 2022-2023</h5>
+                </div>
         </>
     )
     const ProfileRightBar=()=>(

@@ -82,3 +82,38 @@
     cursor: pointer;
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
+.about{
+    margin-top: 10px;
+}
+.aboutName{
+    display: flex;
+    text-align: center ;
+    margin-left: 90px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.aboutNameHeart{
+   margin-left: 2px;
+   margin-right: 2px;
+}
+.aboutSocial1{
+    margin-top: 20px;
+    display: flex;
+    text-align: center;
+    justify-content:space-between;
+}
+.aboutSocial2{
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    text-align: center;
+    justify-content:space-between;
+}
+.aboutCopyrights{
+    margin-top: 20px;
+    text-align: center;
+}
+.socialLinks{
+    text-decoration: none;
+    color: black;
+}

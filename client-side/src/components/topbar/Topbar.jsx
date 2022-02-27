@@ -1,5 +1,5 @@
 import './topbar.css'
-import {Search,Chat,Person,Notifications, Star} from '@material-ui/icons';
+import {Search,Chat,Notifications, Star, SettingsApplicationsRounded} from '@material-ui/icons';
 import {Link} from 'react-router-dom'
 import {AuthContext} from '../../context/AuthContext'
 import {useContext} from 'react'
@@ -26,15 +26,10 @@ function Topbar() {
                 </div>
                 <div className="topbarIcons">
                     <div className="topbarIconItem">
-                        <Person/>
-                        <span className="topbarIconBadge">1</span>
+                        <SettingsApplicationsRounded/>
                     </div>
                     <div className="topbarIconItem">
                       <Link to="/messenger" style={{textDecoration:"none",color:"white"}}><Chat/></Link>
-                        <span className="topbarIconBadge">1</span>
-                    </div>
-                    <div className="topbarIconItem">
-                        <Notifications/>
                         <span className="topbarIconBadge">1</span>
                     </div>
                 </div>

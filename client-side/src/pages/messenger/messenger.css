@@ -3,16 +3,13 @@
     display:flex;
 }
 .chatMenu{
-    flex: 3.5;
+    flex: 2.5;
 }
-.chatMenuInput{
-    padding: 10px 0;
-    width: 90%;
-    border:none;
-    border-bottom: 1px solid gray;
-}
-.chatMenuInput:focus{
-    outline: none;
+.chatMenuConvo{
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 7px;
+    text-align: center;
 }
 .chatBox{
     flex: 5.5;
