@@ -5,6 +5,12 @@ import Topbar from '../../components/topbar/Topbar';
 import 'bootstrap/dist/css/bootstrap.css';
 function Update() {
     const {user}=useContext(AuthContext)
+    const[description,setDescription]=useState(user.description)
+    const[country,setCountry]=useState(user.city)
+    const[city,setCity]=useState(user.from)
+    const[relationship,setRelationship]=useState(user.relationship)
+    const[profilePicture,setProfilePicture]=useState(user.profilePicture)
+    const[coverPicture,setCoverPicture]=useState(user.coveredPicture)
   return (
     <>
     <Topbar/>
@@ -42,7 +48,7 @@ function Update() {
               : 
             </div>
             <div className="col">
-            <input type="file" />
+            <input file={profilePicture} name="profilePicture"type="file" />
             </div>
           </div>
           <div className="row">
@@ -53,7 +59,7 @@ function Update() {
               : 
             </div>
             <div className="col">
-            <input type="file" />
+            <input file={coverPicture} type="file" />
             </div>
           </div>
           <div className="row">
@@ -64,7 +70,7 @@ function Update() {
               : 
             </div>
             <div className="col">
-            <input type="text" />
+            <input value={description} onChange={(e)=>(setDescription(e.target.value))}type="text" />
             </div>
           </div>
           <div className="row">
@@ -75,7 +81,7 @@ function Update() {
               : 
             </div>
             <div className="col">
-            <input type="text" />
+            <input value={country} onChange={(e)=>(setCountry(e.target.value))} type="text" />
             </div>
           </div>
           <div className="row">
@@ -86,7 +92,7 @@ function Update() {
               : 
             </div>
             <div className="col">
-            <input type="text" />
+            <input value={city} onChange={(e)=>(setCity(e.target.value))} type="text" />
             </div>
           </div>
           <div className="row">
@@ -97,7 +103,7 @@ function Update() {
               : 
             </div>
             <div className="col">
-            <input type="text" />
+            <input value={relationship} onChange={(e)=>(setRelationship(e.target.value))} type="text" />
             </div>
           </div>
           
